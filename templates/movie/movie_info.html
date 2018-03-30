@@ -1,0 +1,75 @@
+{% extends 'basc.html' %}
+{% load static from staticfiles %}
+
+{% block title %}
+{% for foo in movieName %}
+    {{ foo.movieName }}
+{% endfor %}
+{% endblock title %}
+
+{% block linkscript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'movie/movie_info.css' %}" />
+{% endblock linkscript %}
+
+{% block main %}
+    <div class="main">
+        <div class="big-box">
+            {% for datum in data %}
+                <h1 id="content">
+                    <span class="movie-ranking">{{ datum.movie_ranking }}</span>
+                    <span class="movie-name">{{ datum.movieName }} </span>
+                </h1>
+                <div class="box">
+                    <div class="pic">
+                        <img src="{{ datum.img }}">
+                    </div>
+                    <div class="info">
+                        <p><span class="title">导演:</span><span class="msg">{{ datum.data_director }}</span></p>
+                        <p><span class="title">编剧:</span><span class="msg">{{ datum.data_attrs }}</span></p>
+                        <p><span class="title">主演:</span><span class="msg">{{ datum.data_actors }}</span></p>
+                        <p><span class="title">类型:</span><span class="msg">{{ datum.movie_type }}</span></p>
+                        <p><span class="title">制作国家/地区:</span><span class="msg">{{ datum.data_region }}</span></p>
+                        <p><span class="title">语言:</span><span class="msg">{{ datum.movie_language }}</span></p>
+                        <p><span class="title">上映日期:</span><span class="msg">{{ datum.data_release }}</span></p>
+                        <p><span class="title">片长:</span><span class="msg">{{ datum.data_duration }}</span></p>
+                        <p><span class="title">又名:</span><span class="msg">{{ datum.also_called }}</span></p>
+                        <p><span class="title">评分:</span><span class="msg">{{ datum.data_score }}</span></p>
+                        <p><span class="title">评价人数:</span><span class="msg">{{ datum.data_number }} 人</span></p>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="introduction">
+                    <p class="mark">{{ datum.movieName }} 剧情简介...</p>
+                    <p class="con">{{ datum.introduction }}</p>
+                </div>
+                <div class="comment">
+                    <p class="mark">{{ datum.movieName }} 短评...</p>
+                    <div class="content_info">
+                        {% for foo in content %}
+                            <div class="portrait">
+                                <div class="img">
+                                    <img src="{{ foo.netImg | default:'/static/media/du.jpg' }}"/>
+                                </div>
+                                <div class="info_net">
+                                    <span class="name">{{ foo.netName }}</span>
+                                    <span class="status">{{ foo.states }}</span>
+                                    <span class="time">{{ foo.contentTime }}</span>
+                                    <p class="content">{{ foo.content | default:'...'}}</p>
+                                </div>
+
+                                <div class="clear"></div>
+                            </div>
+                            {% empty %}
+{#                                    <p class="empty">Smithereens.温馨提示:</p>#}
+                                    <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
+                        {% endfor %}
+                    </div>
+                    <p class="link"><a href="{{ datum.comment_website }}">点击这里显示全部短评的辣...</a> </p>
+                    <span class="img-circle"><img src="/media/shou.png"></span>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock main %}

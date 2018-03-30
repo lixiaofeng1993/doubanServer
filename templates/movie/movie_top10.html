@@ -1,0 +1,29 @@
+{% extends 'basc.html' %}
+{% load static from staticfiles %}
+
+{% block title %}movieRank{% endblock title %}
+
+{% block linkscript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'movie/movie_top10.css' %}" />
+{% endblock linkscript %}
+
+{% block main %}
+    <div class="main">
+        <div class="big-box">
+            <div class="movie-name">
+                <span class="note">热门电影排行榜</span>
+            </div>
+            <div class="rank">
+                <ol>
+                {% for d in top10 %}
+                <li>
+                    <a href="/movie/{{d.0.movieId}}" onclick="window.top.location.href=this.href">{{d.0.movieName}}</a>
+                    <span style="float: right;">{{d.1}}</span>
+                </li>
+
+                {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

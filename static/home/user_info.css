@@ -1,0 +1,40 @@
+.wrapper{
+    padding-top: 4%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.big-box{
+    padding-top: 5%;
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+    position: fixed;
+    margin-top: 0;
+    padding-bottom: 0;
+    max-width: 90%;
+    margin-left: 5%;
+    border-left: solid 1px #ddd;
+    margin-right: 5%;
+    border-right: solid 1px #ddd;
+    background-color: #fcf8e3;
+}
+
+.note{
+    font-size: 26px;
+    padding: 6%;
+    font-weight: 600;
+    margin-left: 15%;
+    color: #1e94cc;
+}
+
+.ansi-bold{
+    margin-left: 35%;
+    padding-top: 6%;
+}
+.form-control{
+    width: 40%;
+}
+.form-group{
+    display: flex;
+}

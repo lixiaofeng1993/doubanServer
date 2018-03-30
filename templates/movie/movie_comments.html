@@ -1,0 +1,46 @@
+{% extends 'basc.html' %}
+{% load static from staticfiles %}
+
+{% block title %}短评{% endblock title %}
+
+{% block linkscript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'movie/movie_comment.css' %}" />
+{% endblock linkscript %}
+
+{% block main %}
+    <div class="border">
+        <div class="main">
+            {% for foo in movieName %}
+                <div class="movie-name">
+                    <p class="note"> {{ foo.movieName }} 短评</p>
+                </div>
+                <div class="p-box">
+
+                    <span class="rate">好评: <span>{{ foo.praise_rate }}</span></span>
+                    <span class="rate">一般: <span>{{ foo.general_rate }}</span></span>
+                    <span class="rate">差评: <span>{{ foo.negative_rate }}</span></span>
+                    <p class="read"><a href="/movie/{{ foo.movieId }}/read/">我来写短评</a></p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="big-box">
+            {% for foo in data %}
+                <div class="box">
+                    <div class="img">
+                        <img src="{{ foo.netImg | default:'/media/du.jpg' }}"/>
+                    </div>
+                    <div class="info">
+                        <span class="name">{{ foo.netName }}</span>
+                        <span class="status">{{ foo.states }}</span>
+                        <span class="time">{{ foo.contentTime }}</span>
+                        <p class="content">{{ foo.content | default:'...'}}</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                {% empty %}
+{#                        <p class="empty">Smithereens.温馨提示:</p>#}
+                        <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock main %}

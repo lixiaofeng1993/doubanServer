@@ -1,0 +1,75 @@
+{% extends 'basc.html' %}
+{% load static from staticfiles %}
+
+{% block title %}
+{% for foo in book_name %}
+    {{ foo.book_name }}
+{% endfor %}
+{% endblock title %}
+
+{% block linkscript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'book/book_info.css' %}" />
+{% endblock linkscript %}
+
+{% block main %}
+    <div class="main">
+        <div class="big-box">
+            {% for datum in data %}
+                <h1 id="content">
+{#                    <span class="movie-ranking">{{ datum.movie_ranking }}</span>#}
+                    <span class="movie-name">{{ datum.book_name }} </span>
+                </h1>
+                <div class="box">
+                    <div class="pic">
+                        <img src="{{ datum.img }}">
+                    </div>
+                    <div class="info">
+                        <p><span class="title">作者:</span><span class="msg">{{ datum.book_author }}</span></p>
+                        <p><span class="title">出版社:</span><span class="msg">{{ datum.book_press }}</span></p>
+                        <p><span class="title">出品方:</span><span class="msg">{{ datum.book_party }}</span></p>
+                        <p><span class="title">原作者:</span><span class="msg">{{ datum.book_original_name }}</span></p>
+                        <p><span class="title">译者:</span><span class="msg">{{ datum.book_translator }}</span></p>
+                        <p><span class="title">出版年:</span><span class="msg">{{ datum.book_publication }}</span></p>
+                        <p><span class="title">页数:</span><span class="msg">{{ datum.book_number }}</span></p>
+                        <p><span class="title">定价:</span><span class="msg">{{ datum.book_price }}</span></p>
+                        <p><span class="title">装帧:</span><span class="msg">{{ datum.book_binding }}</span></p>
+                        <p><span class="title">丛书:</span><span class="msg">{{ datum.book_series }}</span></p>
+                        <p><span class="title">评分:</span><span class="msg">{{ datum.book_score }}</span></p>
+                        <p><span class="title">评价人数:</span><span class="msg">{{ datum.data_number }} 人</span></p>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="introduction">
+                    <p class="mark">{{ datum.book_name }} 书籍简介...</p>
+                    <p class="con">{{ datum.introduction }}</p>
+                </div>
+                <div class="comment">
+                    <p class="mark">{{ datum.book_name }} 短评...</p>
+                    <div class="content_info">
+                        {% for foo in content %}
+                            <div class="portrait">
+                                <div class="img">
+                                    <img src="{{ foo.net_img | default:'/static/media/du.jpg' }}"/>
+                                </div>
+                                <div class="info_net">
+                                    <span class="name">{{ foo.net_name }}</span>
+                                    <span class="status">{{ foo.states }}</span>
+                                    <span class="time">{{ foo.contentTime }}</span>
+                                    <p class="content">{{ foo.content | default:'...'}}</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            {% empty %}
+{#                                    <p class="empty">Smithereens.温馨提示:</p>#}
+                                    <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
+                        {% endfor %}
+                    </div>
+                    <p class="link"><a href="{{ datum.book_comment_website }}">点击这里显示全部短评的辣...</a> </p>
+                    <span class="img-circle"><img src="/media/shou.png"></span>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock main %}

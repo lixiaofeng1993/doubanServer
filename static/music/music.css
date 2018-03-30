@@ -1,0 +1,97 @@
+.main{
+    padding:2.5% 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.subtitle{
+    width: 100%;
+    height: 10%;
+    background-color: #edf4ed;
+    border-bottom: solid 1px #999;
+    position: fixed;
+    display: flex;
+}
+.refresh{
+    line-height: 3;
+    margin-left: 10%;
+}
+.logo{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #27a;
+}
+.box-big{
+    font-size: 14px;
+    margin-top: 6%;
+}
+.box{
+    float: left;
+    width: 13%;
+    height: 285px;
+    margin-top: 1%;
+    margin-left: 6%;
+}
+#movieName{
+    padding-top: 5%;
+}
+.box-search{
+    margin-left: 15%;
+    margin-top: 1%;
+    width: 100%;
+}
+.Instructions{
+    width: 3%;
+    height: 2%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+.font{
+    font-size: 14px;
+    font-weight: 600;
+    color: purple;
+}
+.box a img{
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+.box a p{
+    text-align: center;
+    font-weight: 500;
+    color: #000;
+    overflow: hidden;
+}
+.page-box{
+    width: 100%;
+    height: 10%;
+    margin-left: 38%;
+    margin-bottom: 7%;
+
+}
+.page{
+    float: left;
+    padding: 1% 1% 1% 1%;
+    /*border: 1px solid #000000;*/
+    border-radius: 50%;
+    background-color: #e7e7e7;
+}
+.page:hover{
+    background-color: #c1e2b3;
+}
+.page-num-True{
+    background-color: #adadad;
+}
+.rank{
+    margin-left: 40%;
+    margin-top: 2.5%;
+    font-size: 13px;
+    color: #999999;
+}
+.rank a{
+    font-size: 15px;
+    font-weight: 600;
+    color: red;
+}

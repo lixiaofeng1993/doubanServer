@@ -1,0 +1,45 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+{#    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">#}
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/swiper.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/reset.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/base.css' %}" />
+
+{#    <script type="text/javascript" src="{% static 'base/js/jquery-3.1.1.min.js' %}"></script>#}
+{#    <script type="text/javascript" src="{% static 'base/js/bootstrap.min.js' %}"></script>#}
+{#    <script type="text/javascript" src="{% static 'base/js/swiper.min.js' %}"></script>#}
+{#    <script type="text/javascript" src="{% static 'base/js/base.js' %}"></script>#}
+
+    {% block linkscript %}{% endblock linkscript %}
+
+</head>
+<body>
+    <header>
+
+        <span class="home look"><a href="/">首页</a></span>
+        <span class="movie look"><a href="http://longlove.wang/movie/1/">电影赏析</a></span>
+
+        <span class="book look"><a href="http://longlove.wang/book/1/">书籍世界</a></span>
+
+        <span class="music look"><a href="http://longlove.wang/music/1/">音乐天堂</a></span>
+        <span class="what look"><a href="/what/">你想要什么?</a></span>
+        {% if request.session.net_name %}
+            <span class="login look"><a href="/user/info/"> {{ request.session.net_name }}</a> 你好!</span>
+            <span class="quit look"><a href="/quit/">退出帐号</a></span>
+        {% else %}
+            <span class="login look"><a href="/login/"> 登录 </a></span>
+            <span class="register look"><a href="/register/">注册</a></span>
+        {% endif %}
+        {% block note %}{% endblock note %}
+    </header>
+
+    {% block main %}
+    {% endblock main %}
+
+</body>
+</html>
