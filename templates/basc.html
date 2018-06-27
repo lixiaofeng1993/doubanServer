@@ -22,12 +22,15 @@
     <header>
 
         <span class="home look"><a href="/">首页</a></span>
+{#        <span class="movie look"><a href="http://localhost:8888/movie/1/">电影赏析</a></span>#}
         <span class="movie look"><a href="http://longlove.wang/movie/1/">电影赏析</a></span>
 
+{#        <span class="book look"><a href="http://localhost:8888/book/1/">书籍世界</a></span>#}
         <span class="book look"><a href="http://longlove.wang/book/1/">书籍世界</a></span>
 
+{#        <span class="music look"><a href="http://localhost:8888/music/1/">音乐天堂</a></span>#}
         <span class="music look"><a href="http://longlove.wang/music/1/">音乐天堂</a></span>
-        <span class="what look"><a href="/what/">你想要什么?</a></span>
+        <span class="what look"><a href="/what/">你想对我说?</a></span>
         {% if request.session.net_name %}
             <span class="login look"><a href="/user/info/"> {{ request.session.net_name }}</a> 你好!</span>
             <span class="quit look"><a href="/quit/">退出帐号</a></span>
@@ -36,6 +39,9 @@
             <span class="register look"><a href="/register/">注册</a></span>
         {% endif %}
         {% block note %}{% endblock note %}
+        <span class="quit look"><a href="/board/">留言板</a></span>
+        <span class="quit look"><a href="/learning_logs/">学习笔记</a></span>
+
     </header>
 
     {% block main %}

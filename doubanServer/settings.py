@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'f=a+u3or%al_kasu$q=lyxnu5p_ewxcf+-v9ktu0+szd6ioeud'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*', ]
 
@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 第三方应用程序
+    'bootstrap3',
+    # 我的程序
     'douban',
+    'learning_logs',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -144,7 +149,7 @@ MEDIA_URL = '/media/'      # 对应上线后的url
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://:123456@127.0.0.1:6379/2",
+        "LOCATION": "redis://127.0.0.1:6379/2",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "PICKLE_VERSION": -1,
@@ -157,7 +162,7 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 REDIS = {
     'host': 'localhost',
     'port': '6379',
-    'password': 123456,
+	# 'password': 123456,
     'db': '1',
 }
 # 短息配置
@@ -169,4 +174,9 @@ SMS = {
     'content': "您的验证码是：%d。请不要把验证码泄露给其他人。",
     'mobile': None,
     'format': 'json'
+}
+
+# bootstrap3设置
+BOOTSTRAP3 = {
+    'include_jquery': True
 }

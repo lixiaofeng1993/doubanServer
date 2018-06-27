@@ -284,7 +284,7 @@ class User(models.Model):
     # 年龄
     age = models.IntegerField()
     # 密码
-    password = models.CharField(max_length=16)
+    password = models.CharField(max_length=128)
     # token
     # user_token = models.CharField(max_length=50)
 

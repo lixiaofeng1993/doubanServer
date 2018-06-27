@@ -3,7 +3,7 @@
 from multiprocessing import cpu_count
 
 bind = ['127.0.0.1:9000']
-daemon = False   # 守护进程
+daemon = True   # 守护进程
 
 workers = cpu_count() * 2
 worker_class = 'gevent'

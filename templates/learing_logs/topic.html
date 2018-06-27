@@ -1,0 +1,29 @@
+{% extends 'learing_logs/../base.html' %}
+
+{% block header %}
+    <h1> {{ topic }}</h1>
+{% endblock header %}
+
+{% block content %}
+
+    <p>
+        <a href="{% url 'learning_logs:new_entry' topic.id %}">添加一条新记录</a>
+    </p>
+    {% for foo in entries %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>
+                    {{ foo.date_added|date:'M d, Y H:i' }}
+                    <small>
+                        <a href="{% url 'learning_logs:edit_entry' foo.id %}">编辑记录</a>
+                    </small>
+                </h3>
+            </div>
+            <div class="panel-body">
+                {{ foo.text|linebreaks }}
+            </div>
+        </div>
+            {% empty %}
+                <li>没有内容呢！</li>
+            {% endfor %}
+{% endblock content %}

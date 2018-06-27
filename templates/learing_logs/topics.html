@@ -1,0 +1,21 @@
+{% extends 'learing_logs/../base.html' %}
+
+{% block header %}
+    <h1>话题</h1>
+{% endblock header %}
+
+{% block content %}
+
+    {% for foo in topics %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>
+                    <a href="{% url 'learning_logs:topic' foo.id%}">{{ foo }}</a>
+                </h3>
+            </div>
+        </div>
+    {% empty %}
+        <li>没有内容呢！</li>
+    {% endfor %}
+    <h3><a href="{% url 'learning_logs:new_topic' %}">添加一个新话题</a></h3>
+{% endblock content %}

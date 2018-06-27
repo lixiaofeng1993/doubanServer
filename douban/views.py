@@ -31,7 +31,6 @@ def movie_info(request, mid):
     data = MovieInfo.objects.filter(movieId=mid)
     content = MovieComment.objects.filter(movieId=mid)[0:5]
     r.zincrby('ReadRank--movie', mid)
-    print('点击量加1')
     return render(request, 'movie/movie_info.html', {'data': data, 'movieName': movie_name, 'content': content})
 
 
@@ -85,7 +84,6 @@ def book_info(request, mid):
     data = BookInfo.objects.filter(book_id=mid)
     content = BookComment.objects.filter(book_id=mid)[0:5]
     r.zincrby('ReadRank--book', mid)
-    print('点击量加1')
     return render(request, 'book/book_info.html', {'data': data, 'book_name': book_name, 'content': content})
 
 
@@ -129,7 +127,7 @@ def book_top10(request):
 @page_cache(2)
 def music(request, pid):
     data_list = MusicHome.objects.all()
-    paginator = Paginator(data_list, 20)
+    paginator = Paginator(data_list, 30)
     musics = paginator.page(pid)
     return render(request, 'music/music.html', {'data': musics})
 
@@ -139,7 +137,6 @@ def music_info(request, mid):
     data = MusicInfo.objects.filter(music_id=mid)
     content = MusicComment.objects.filter(music_id=mid)[0:5]
     r.zincrby('ReadRank--music', mid)
-    print('点击量加1')
     return render(request, 'music/music_info.html', {'data': data, 'music_name': music_name, 'content': content})
 
 
@@ -216,11 +213,9 @@ def user_info(request):
 def register(request):
     if request.method == 'GET':
         request.session['login_from'] = request.META.get('HTTP_REFERER', '/')
-        print(request.session['login_from'])
         return render(request, 'user/register.html')
     elif request.method == 'POST':
         form = RegisterForm(request.POST, request.FILES)
-        print('form', form)
         if form.is_valid():
             user = form.save(commit=False)
             user.password = make_password(user.password)
@@ -234,11 +229,9 @@ def register(request):
 
 
 def quit(request):
-    # logout(request)
     login_from = request.META.get('HTTP_REFERER', '/')
     response = redirect(login_from)
     request.session.flush()
-    # r.flushall()
     return response
 
 
@@ -247,7 +240,7 @@ def what(request):
         if request.session.get('uid'):
             return render(request, 'what.html')
         else:
-            request.session['login_from'] = 'http://localhost:8888/what/'
+            request.session['login_from'] = 'http://longlove.wang/what/'
             return render(request, 'user/login.html')
     else:
         content = request.POST.get('content')
@@ -261,7 +254,6 @@ def what(request):
 def code_login(request):
     if request.method == 'POST':
         phone = request.POST.get('phone')
-        print(phone)
         code = request.POST.get('code')
         try:
             user = User.objects.get(phone=phone)
@@ -281,8 +273,16 @@ def send_code(request):
         user = User.objects.get(phone=phone)
     except User.DoesNotExist as e:
         return render(request, 'user/code_login.html', {'error': '手机号未注册,请先注册!'})
-    print('='*100)
-    print(phone)
-    # phone = 18701137212
     send_phone_code(phone)
     return render(request, 'user/code_login.html', {'phone': phone})
+
+
+def message_board(request):
+    if request.method == 'GET':
+        if request.session.get('uid'):
+            data = What.objects.all()
+            return render(request, 'board.html', {'data': data})
+        else:
+            request.session['login_from'] = 'http://longlove.wang/board/'
+            return render(request, 'user/login.html')
+

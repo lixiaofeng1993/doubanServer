@@ -10,7 +10,7 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     # 首页
-    url(r'^$', view=views.home),
+    url(r'^$', view=views.home, name='home'),
     # movie
     url(r'^movie/(\d{1,2})/$', view=views.movie),
     url(r'^movie/(\d+)/$', view=views.movie_info),
@@ -37,6 +37,9 @@ urlpatterns = [
     url(r'^what/$', view=views.what),
     url(r'^code/$', view=views.code_login),
     url(r'^send/$', view=views.send_code),
+
+    url(r'^board/$', view=views.message_board),
+
     url(r'^favicon.ico$', RedirectView.as_view(url=r'static/favicon.ico')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
