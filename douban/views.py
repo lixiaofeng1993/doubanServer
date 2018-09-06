@@ -74,6 +74,7 @@ def movie_top10(request):
 @page_cache(2)
 def book(request, pid):
     data_list = BookHome.objects.all()
+    print(data_list)
     paginator = Paginator(data_list, 20)
     books = paginator.page(pid)
     return render(request, 'book/book.html', {'data': books})
