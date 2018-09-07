@@ -3,9 +3,9 @@ from .models import MovieInfo, MovieHome, MovieComment, BookInfo, BookHome, Book
     MusicComment, User, What
 from django.contrib.auth.hashers import check_password, make_password
 from douban.form import RegisterForm
-from django.http import HttpResponse, JsonResponse
+# from django.http import HttpResponse, JsonResponse
 from django.core.paginator import Paginator
-from django.contrib.auth import logout, authenticate, login
+# from django.contrib.auth import logout, authenticate, login
 import time
 from douban.helper import page_cache, r, get_top_n, send_phone_code, check_code
 

@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'f=a+u3or%al_kasu$q=lyxnu5p_ewxcf+-v9ktu0+szd6ioeud'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*', ]
-
 
 # Application definition
 
@@ -78,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'doubanServer.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -99,8 +96,6 @@ DATABASES = {
     }
 }
 
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -119,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -133,7 +127,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
@@ -142,9 +135,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
-#上传
-MEDIA_ROOT = 'media'       # 对应文件夹
-MEDIA_URL = '/media/'      # 对应上线后的url
+# 上传
+MEDIA_ROOT = 'media'  # 对应文件夹
+MEDIA_URL = '/media/'  # 对应上线后的url
 # 配置缓存
 CACHES = {
     "default": {
@@ -162,7 +155,7 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 REDIS = {
     'host': 'localhost',
     'port': '6379',
-	# 'password': 123456,
+    # 'password': 123456,
     'db': '1',
 }
 # 短息配置
