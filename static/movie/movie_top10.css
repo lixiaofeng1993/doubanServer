@@ -1,4 +1,4 @@
-.big-box{
+.big-box {
     padding-top: 5%;
     width: 100%;
     height: 100%;
@@ -13,10 +13,12 @@
     border-right: solid 1px #ddd;
     background-color: #fcf8e3;
 }
-.movie-name{
+
+.movie-name {
     margin-top: 1%;
 }
-.note{
+
+.note {
     font-size: 26px;
     padding: 3%;
     font-weight: 600;
@@ -24,18 +26,21 @@
     color: #1e94cc;
 }
 
-ol{
+ol {
     margin-top: 2%;
     margin-left: 18%;
     font-size: 15px;
 }
-li{
+
+li {
     margin-top: 1%;
 }
-span{
+
+span {
     margin-left: 10%;
 }
-.rank{
+
+.rank {
     width: 50%;
     margin-left: 15%;
     margin-top: 2%;

@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 from . import views
 from django.views.generic.base import RedirectView
 
-
 urlpatterns = [
     # 首页
     url(r'^$', view=views.home, name='home'),

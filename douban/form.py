@@ -15,4 +15,3 @@ class RegisterForm(forms.ModelForm):
         cleaned_data = super().clean()
         if cleaned_data['password'] != cleaned_data['password2']:
             raise forms.ValidationError('密码不一致')
-

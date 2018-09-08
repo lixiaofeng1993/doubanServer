@@ -4,70 +4,76 @@
 {% block title %}register{% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'home/register.css' %}" />
-{#    <script type="text/javascript" src="{% static 'home/register.js' %}"></script>#}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/register.css' %}"/>
+    {#    <script type="text/javascript" src="{% static 'home/register.js' %}"></script>#}
 {% endblock linkscript %}
 
 {% block main %}
     {% if error %}
-    <div class="alert alert-danger alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    {{ error }}
-    </div>
-{% endif %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ error }}
+        </div>
+    {% endif %}
     <div class="main">
 
         <div class="big-box">
 
-                <div class="movie-name">
-                    <span class="note">欢迎加入 Smithereens. </span>
-                </div>
-                <form class="add-another" method="post" action="/register/" enctype=multipart/form-data>
-                     {% csrf_token %}
-                    <div class="ansi-bold">
-                        <div class="group">
-                            <span>手机号:</span>
-                            <input id="phone" required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="phone">
-{#                            <span id="accunterr" class="error">手机号格式输入错误</span>#}
-{#                            <span id="checkerr" class="error">手机号已被占用，请重新输入</span>#}
-                        </div>
-                        <div class="group">
-                            <span>网名:</span>
-                            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="net_name">
-                        </div>
-                        <div class="group">
-                            <p>密码:</p>
-                            <input id="pass" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addon1" name="password">
-{#                            <span id="passerr" class="error">密码格式输入错误</span>#}
-                        </div>
-                        <div class="group">
-                            <span>验证:</span>
-                            <input id="passwd" type="password" class="form-control" placeholder="请重新输入密码" aria-describedby="basic-addon1" name="password2">
-{#                            <span id="passwderr" class="error">两次密码输入不同</span>#}
-                        </div>
-                        <div class="group sex">
-                            <span>性别:</span>
-{#                            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="sex">#}
-                            <select name="sex">
-                                <option value="M">男</option>
-                                <option value="F">女</option>
-                                <option value="U">保密</option>
-                            </select>
-                        </div>
-                        <div class="group">
-                            <span>年龄:</span>
-                            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="age">
-                        </div>
-                        <div class="group">
-                            <span>头像:</span>
-                            <input required="required" type="file" class="form-control" aria-describedby="basic-addon1" name="net_img">
-                        </div>
-                            <input class="btn-info" type="submit" value="提交" />
-
+            <div class="movie-name">
+                <span class="note">欢迎加入 Smithereens. </span>
+            </div>
+            <form class="add-another" method="post" action="/register/" enctype=multipart/form-data>
+                {% csrf_token %}
+                <div class="ansi-bold">
+                    <div class="group">
+                        <span>手机号:</span>
+                        <input id="phone" required="required" type="text" class="form-control"
+                               aria-describedby="basic-addon1" name="phone">
+                        {#                            <span id="accunterr" class="error">手机号格式输入错误</span>#}
+                        {#                            <span id="checkerr" class="error">手机号已被占用，请重新输入</span>#}
                     </div>
-                </form>
+                    <div class="group">
+                        <span>网名:</span>
+                        <input required="required" type="text" class="form-control" aria-describedby="basic-addon1"
+                               name="net_name">
+                    </div>
+                    <div class="group">
+                        <p>密码:</p>
+                        <input id="pass" type="password" class="form-control" placeholder="密码长度为6~16个字符"
+                               aria-describedby="basic-addon1" name="password">
+                        {#                            <span id="passerr" class="error">密码格式输入错误</span>#}
+                    </div>
+                    <div class="group">
+                        <span>验证:</span>
+                        <input id="passwd" type="password" class="form-control" placeholder="请重新输入密码"
+                               aria-describedby="basic-addon1" name="password2">
+                        {#                            <span id="passwderr" class="error">两次密码输入不同</span>#}
+                    </div>
+                    <div class="group sex">
+                        <span>性别:</span>
+                        {#                            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="sex">#}
+                        <select name="sex">
+                            <option value="M">男</option>
+                            <option value="F">女</option>
+                            <option value="U">保密</option>
+                        </select>
+                    </div>
+                    <div class="group">
+                        <span>年龄:</span>
+                        <input required="required" type="text" class="form-control" aria-describedby="basic-addon1"
+                               name="age">
+                    </div>
+                    <div class="group">
+                        <span>头像:</span>
+                        <input required="required" type="file" class="form-control" aria-describedby="basic-addon1"
+                               name="net_img">
+                    </div>
+                    <input class="btn-info" type="submit" value="提交"/>
+
+                </div>
+            </form>
 
         </div>
     </div>

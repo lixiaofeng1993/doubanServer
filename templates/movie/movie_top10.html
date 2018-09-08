@@ -4,7 +4,7 @@
 {% block title %}movieRank{% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'movie/movie_top10.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'movie/movie_top10.css' %}"/>
 {% endblock linkscript %}
 
 {% block main %}
@@ -15,13 +15,14 @@
             </div>
             <div class="rank">
                 <ol>
-                {% for d in top10 %}
-                <li>
-                    <a href="/movie/{{d.0.movieId}}" onclick="window.top.location.href=this.href">{{d.0.movieName}}</a>
-                    <span style="float: right;">{{d.1}}</span>
-                </li>
+                    {% for d in top10 %}
+                        <li>
+                            <a href="/movie/{{ d.0.movieId }}"
+                               onclick="window.top.location.href=this.href">{{ d.0.movieName }}</a>
+                            <span style="float: right;">{{ d.1 }}</span>
+                        </li>
 
-                {% endfor %}
+                    {% endfor %}
                 </ol>
             </div>
         </div>

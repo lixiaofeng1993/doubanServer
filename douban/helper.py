@@ -8,14 +8,15 @@ from django.conf import settings
 from redis import Redis
 import random
 from douban.models import MovieHome, MusicHome, BookHome
+
 r = Redis(**settings.REDIS)
 
 
 def page_cache(timeout):
     def wrap1(view_func):  # page_cache装饰器
         def wrap2(request, *args, **kwargs):
-            key = 'Response-{}'.format(request.get_full_path())     # 拼接唯一的key
-            response = cache.get(key)   # 从缓存中获取数据
+            key = 'Response-{}'.format(request.get_full_path())  # 拼接唯一的key
+            response = cache.get(key)  # 从缓存中获取数据
             print('从缓存中获取数据:{}'.format(response))
             # 添加阅读计数
             if response is None:
@@ -24,7 +25,9 @@ def page_cache(timeout):
                 cache.set(key, response, timeout)
                 print('从数据库中获取:{}'.format(response))
             return response
+
         return wrap2
+
     return wrap1
 
 

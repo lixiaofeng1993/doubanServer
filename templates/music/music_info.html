@@ -2,13 +2,13 @@
 {% load static from staticfiles %}
 
 {% block title %}
-{% for foo in music_name %}
-    {{ foo.music_name }}
-{% endfor %}
+    {% for foo in music_name %}
+        {{ foo.music_name }}
+    {% endfor %}
 {% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'music/music_info.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'music/music_info.css' %}"/>
 {% endblock linkscript %}
 
 {% block main %}
@@ -16,7 +16,7 @@
         <div class="big-box">
             {% for datum in data %}
                 <h1 id="content">
-{#                    <span class="movie-ranking">{{ datum.music_name }}</span>#}
+                    {#                    <span class="movie-ranking">{{ datum.music_name }}</span>#}
                     <span class="movie-name">{{ datum.music_name }} </span>
                 </h1>
                 <div class="box">
@@ -60,16 +60,16 @@
                                     <span class="name">{{ foo.net_name }}</span>
                                     <span class="status">{{ foo.states }}</span>
                                     <span class="time">{{ foo.contentTime }}</span>
-                                    <p class="content">{{ foo.content | default:'...'}}</p>
+                                    <p class="content">{{ foo.content | default:'...' }}</p>
                                 </div>
                                 <div class="clear"></div>
                             </div>
-                            {% empty %}
-{#                                    <p class="empty">Smithereens.温馨提示:</p>#}
-                                    <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
+                        {% empty %}
+                            {#                                    <p class="empty">Smithereens.温馨提示:</p>#}
+                            <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
                         {% endfor %}
                     </div>
-                    <p class="link"><a href="{{ datum.music_comment_website }}">点击这里显示全部短评的辣...</a> </p>
+                    <p class="link"><a href="{{ datum.music_comment_website }}">点击这里显示全部短评的辣...</a></p>
                     <span class="img-circle"><img src="/media/shou.png"></span>
                 </div>
             {% endfor %}

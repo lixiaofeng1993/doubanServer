@@ -4,7 +4,7 @@
 {% block title %}短评{% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'movie/movie_comment.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'movie/movie_comment.css' %}"/>
 {% endblock linkscript %}
 
 {% block main %}
@@ -33,13 +33,13 @@
                         <span class="name">{{ foo.netName }}</span>
                         <span class="status">{{ foo.states }}</span>
                         <span class="time">{{ foo.contentTime }}</span>
-                        <p class="content">{{ foo.content | default:'...'}}</p>
+                        <p class="content">{{ foo.content | default:'...' }}</p>
                     </div>
                     <div class="clear"></div>
                 </div>
-                {% empty %}
-{#                        <p class="empty">Smithereens.温馨提示:</p>#}
-                        <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
+            {% empty %}
+                {#                        <p class="empty">Smithereens.温馨提示:</p>#}
+                <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
             {% endfor %}
         </div>
     </div>

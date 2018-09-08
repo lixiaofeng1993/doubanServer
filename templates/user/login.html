@@ -4,8 +4,8 @@
 {% block title %}login{% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'home/register.css' %}" />
-{#    <script type="text/javascript" src="{% static 'home/login.js' %}"></script>#}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/register.css' %}"/>
+    {#    <script type="text/javascript" src="{% static 'home/login.js' %}"></script>#}
 {% endblock linkscript %}
 
 {% block main %}
@@ -13,29 +13,31 @@
 
         <div class="big-box">
             {% if error %}
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            {{ error }}
-        </div>
-        {% endif %}
-                <div class="movie-name">
-                    <span class="note">登录 Smithereens. </span>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    {{ error }}
                 </div>
-                <form class="add-another" method="post" action="/login/">
-                     {% csrf_token %}
-                    <div class="ansi-bold">
-                        <div class="group">
-                            <p class="forget"><a href="/code/">手机验证码登录</a> </p>
-                            <span>手机号:</span>
-                            <input id="phone" required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userPhone">
-                        </div>
-                        <div class="group">
-                            <p>密码:</p>
-                            <input id="pass" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addon1" name="userPass">
-                        </div>
-                        <input class="btn-info" type="submit" value="登录" />
-
+            {% endif %}
+            <div class="movie-name">
+                <span class="note">登录 Smithereens. </span>
+            </div>
+            <form class="add-another" method="post" action="/login/">
+                {% csrf_token %}
+                <div class="ansi-bold">
+                    <div class="group">
+                        <p class="forget"><a href="/code/">手机验证码登录</a></p>
+                        <span>手机号:</span>
+                        <input id="phone" required="required" type="text" class="form-control"
+                               aria-describedby="basic-addon1" name="userPhone">
                     </div>
-                </form>
+                    <div class="group">
+                        <p>密码:</p>
+                        <input id="pass" type="password" class="form-control" placeholder="密码长度为6~16个字符"
+                               aria-describedby="basic-addon1" name="userPass">
+                    </div>
+                    <input class="btn-info" type="submit" value="登录"/>
+
+                </div>
+            </form>
 
         </div>
     </div>

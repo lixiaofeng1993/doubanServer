@@ -10,7 +10,7 @@ class MovieInfo(models.Model):
     img = models.CharField(max_length=100)
     # 电影信息网址
     info_website = models.CharField(max_length=100)
-    # 评分
+    # 评分Z
     data_score = models.CharField(max_length=30)
     # 片长
     data_duration = models.CharField(max_length=100)
@@ -245,7 +245,8 @@ class MusicComment(models.Model):
         db_table = 'music_comment'
 
     @classmethod
-    def create_comment(cls, net_name, music_id, music_name, states, content, contentTime, music_comment_website, net_img):
+    def create_comment(cls, net_name, music_id, music_name, states, content, contentTime, music_comment_website,
+                       net_img):
         u = cls(net_name=net_name, music_id=music_id, music_name=music_name, states=states, content=content,
                 contentTime=contentTime, music_comment_website=music_comment_website, net_img=net_img)
         return u
@@ -285,6 +286,7 @@ class User(models.Model):
     age = models.IntegerField()
     # 密码
     password = models.CharField(max_length=128)
+
     # token
     # user_token = models.CharField(max_length=50)
 

@@ -1,21 +1,23 @@
 
-body{
+body {
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #fff;
     font-family: 新宋体;
 }
-header{
+
+header {
     width: 100%;
     height: 5%;
     position: fixed;
     display: flex;
     z-index: 10;
-    left:0;
+    left: 0;
     top: 0;
     background-color: #555;
 }
-.look{
+
+.look {
     font-size: 13px;
     margin-left: 3%;
     margin-top: 0.5%;
@@ -23,30 +25,38 @@ header{
 
 }
 
-.look a{
+.look a {
     color: #fff;
 }
-.look a:hover{
+
+.look a:hover {
     color: red;
 }
-.look a:active{
+
+.look a:active {
     color: #985f0d;
 }
-.movie a{
+
+.movie a {
     font-weight: 600;
 }
-.book a{
+
+.book a {
     font-weight: 600;
 }
-.music a{
+
+.music a {
     font-weight: 600;
 }
+
 .what {
     margin-left: 25%;
 }
-header .what a{
+
+header .what a {
     color: #999999;
 }
-.login{
+
+.login {
     color: #fff;
 }

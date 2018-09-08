@@ -4,7 +4,7 @@
 {% block title %}books{% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'book/book.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'book/book.css' %}"/>
 {% endblock linkscript %}
 
 
@@ -16,25 +16,25 @@
         </div>
         <div class="box-big">
             {% for datum in data %}
-            <div class="box"><a href="{{ datum.book_info_website }}" ><img src="{{ datum.img }}"/>
-                <p id="movieName">{{ datum.book_name }}</p></a>
-            </div>
+                <div class="box"><a href="{{ datum.book_info_website }}"><img src="{{ datum.img }}"/>
+                    <p id="movieName">{{ datum.book_name }}</p></a>
+                </div>
             {% endfor %}
         </div>
     </div>
     <ul class="page-box">
         {% if data.has_previous %}
-             <li class="page-left page"><a href="/book/{{ data.previous_page_number }}">上一页</a></li>
+            <li class="page-left page"><a href="/book/{{ data.previous_page_number }}">上一页</a></li>
         {% endif %}
         {% for index in data.paginator.page_range %}
             {% if data.number == index %}
-            <li class="page-num-True page">{{ index }}</li>
+                <li class="page-num-True page">{{ index }}</li>
             {% else %}
-            <li class="page-num page"><a href="/book/{{ index }}/">{{ index }}</a></li>
+                <li class="page-num page"><a href="/book/{{ index }}/">{{ index }}</a></li>
             {% endif %}
         {% endfor %}
         {% if data.has_next %}
-             <li class="page-right page"><a href="/book/{{ data.next_page_number }}">下一页</a></li>
+            <li class="page-right page"><a href="/book/{{ data.next_page_number }}">下一页</a></li>
         {% endif %}
     </ul>
 {% endblock main %}

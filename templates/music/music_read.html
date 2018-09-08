@@ -4,7 +4,7 @@
 {% block title %}写短评{% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'base/read.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'base/read.css' %}"/>
 {% endblock linkscript %}
 
 {% block main %}
@@ -17,15 +17,15 @@
                     <span class="note">撰写 {{ datum.music_name }} 小短评:</span>
                 </div>
                 <form class="add-another" method="post" action="{{ datum.music_comment_website }}/">
-                     {% csrf_token %}
+                    {% csrf_token %}
                     <div class="ansi-bold">
-{#                        <span>显示名称:</span>#}
-{#                        <input required="required" type="text" class="form-control" placeholder="username" name="netName">#}
+                        {#                        <span>显示名称:</span>#}
+                        {#                        <input required="required" type="text" class="form-control" placeholder="username" name="netName">#}
                         <span>星级:</span>
                         <input required="required" type="text" class="form-control" name="states">
                         <p>短评内容:</p>
-                        <textarea  required="required" class="form-control" name="content"></textarea>
-                        <input class="btn-info" type="submit" value="提交" />
+                        <textarea required="required" class="form-control" name="content"></textarea>
+                        <input class="btn-info" type="submit" value="提交"/>
                     </div>
                 </form>
             {% endfor %}

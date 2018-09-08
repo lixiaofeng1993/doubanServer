@@ -4,7 +4,7 @@
 {% block title %}短评{% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'book/book_comment.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'book/book_comment.css' %}"/>
 {% endblock linkscript %}
 
 {% block main %}
@@ -13,9 +13,9 @@
             {% for foo in book_name %}
                 <div class="p-box">
                     <span class="note"> {{ foo.book_name }} 短评</span>
-{#                    <span class="rate">好评: <span>{{ foo.praise_rate }}</span></span>#}
-{#                    <span class="rate">一般: <span>{{ foo.general_rate }}</span></span>#}
-{#                    <span class="rate">差评: <span>{{ foo.negative_rate }}</span></span>#}
+                    {#                    <span class="rate">好评: <span>{{ foo.praise_rate }}</span></span>#}
+                    {#                    <span class="rate">一般: <span>{{ foo.general_rate }}</span></span>#}
+                    {#                    <span class="rate">差评: <span>{{ foo.negative_rate }}</span></span>#}
                     <p class="read"><a href="/book/{{ foo.book_id }}/read/">我来写短评</a></p>
                 </div>
             {% endfor %}
@@ -30,13 +30,13 @@
                         <span class="name">{{ foo.net_name }}</span>
                         <span class="status">{{ foo.states }}</span>
                         <span class="time">{{ foo.contentTime }}</span>
-                        <p class="content">{{ foo.content | default:'...'}}</p>
+                        <p class="content">{{ foo.content | default:'...' }}</p>
                     </div>
                     <div class="clear"></div>
                 </div>
-                {% empty %}
-{#                        <p class="empty">Smithereens.温馨提示:</p>#}
-                        <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
+            {% empty %}
+                {#                        <p class="empty">Smithereens.温馨提示:</p>#}
+                <p class="p-space empty">暂时还没有人评论,赶快去做第一个吃螃蟹的人吧!</p>
             {% endfor %}
         </div>
     </div>

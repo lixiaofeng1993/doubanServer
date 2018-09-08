@@ -8,8 +8,8 @@ $(document).ready(function () {
             return;
         }
         //验证账号是否可用，后台验证
-        $.post("/register/", {"userPhone":$(this).val()}, function (data, status) {
-            if (data.data){
+        $.post("/register/", {"userPhone": $(this).val()}, function (data, status) {
+            if (data.data) {
                 //有问题
                 $("#checkerr").show();
             }
@@ -20,8 +20,8 @@ $(document).ready(function () {
         $("#accunterr").hide();
         $("#checkerr").hide();
     });
-    $('#pass').bind('blur',function () {
-        if ($(this).val().length < 6 || $(this).val().length > 16){
+    $('#pass').bind('blur', function () {
+        if ($(this).val().length < 6 || $(this).val().length > 16) {
             $('#passerr').show();
         }
     });
@@ -30,12 +30,12 @@ $(document).ready(function () {
         $("#passerr").hide();
         // $("#checkerr").hide();
     });
-    $('#passwd').bind('blur',function () {
-        if ($(this).val() != $('#pass').val()){
+    $('#passwd').bind('blur', function () {
+        if ($(this).val() != $('#pass').val()) {
             $('#passwderr').show();
         }
     });
-    $('#passwd').bind('focus',function () {
+    $('#passwd').bind('focus', function () {
         $(this).val("");
         $('#passwderr').hide();
 

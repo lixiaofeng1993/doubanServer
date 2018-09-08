@@ -68,6 +68,7 @@ def movie_read(request, mid):
 
 def movie_top10(request):
     top10 = get_top_n(15, 'movie_top10')
+    print(top10)
     return render(request, 'movie/movie_top10.html', {'top10': top10})
 
 
@@ -286,4 +287,3 @@ def message_board(request):
         else:
             request.session['login_from'] = 'http://longlove.wang/board/'
             return render(request, 'user/login.html')
-

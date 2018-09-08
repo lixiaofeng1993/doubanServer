@@ -1,10 +1,11 @@
-.border{
+.border {
     margin-left: 5%;
     border-left: solid 1px #ddd;
     margin-right: 5%;
     border-right: solid 1px #ddd;
 }
-.main{
+
+.main {
     padding-top: 2.5%;
     padding-left: 3%;
     padding-right: 3%;
@@ -14,45 +15,53 @@
     z-index: 10;
 }
 
-.note{
+.note {
     padding: 2%;
     font-weight: 600;
     margin-left: 5%;
     color: #494949;
     font-size: 26px;
 }
-.p-box{
+
+.p-box {
     width: 100%;
     height: 5%;
     border-bottom: solid 1px #ddd;
     border-top: solid 1px #ddd;
     padding: 1%;
 }
-.rate{
+
+.rate {
     margin-left: 1%;
     font-weight: 600;
 }
-.rate span{
+
+.rate span {
     color: #999;
 }
-.read{
+
+.read {
     margin-left: 70%;
     font-weight: 600;
 }
-.read a{
+
+.read a {
     /*margin-left: 8%;*/
     color: blue;
 }
-.read a:hover{
+
+.read a:hover {
     color: red;
 }
-.box{
+
+.box {
     display: block;
     width: 100%;
     margin-top: 1%;
     border-bottom: solid 1px #ddd;
 }
-.clear:after{
+
+.clear:after {
     content: ".";
     height: 0;
     visibility: hidden;
@@ -60,11 +69,12 @@
     clear: both;
 }
 
-.big-box{
+.big-box {
     padding-right: 3%;
     padding-left: 3%;
 }
-.img{
+
+.img {
     display: block;
     float: left;
     margin-left: 10px;
@@ -72,37 +82,45 @@
     width: 50px;
     height: 50px;
 }
-.img img{
+
+.img img {
     overflow: hidden;
     height: 100%;
     width: 100%;
 }
-.info{
+
+.info {
     overflow: hidden;
     color: #494949;
     font-size: 13px;
     line-height: 30px;
 }
-.name{
+
+.name {
     font-weight: 600;
     color: chocolate;
 }
-.time{
+
+.time {
     margin-left: 5px;
     color: #999;
 }
-.status{
+
+.status {
     margin-left: 5px;
     color: #666;
 }
-.content{
+
+.content {
     color: #333;
     text-indent: 25px;
 }
-.empty{
+
+.empty {
     margin: 5% 5% 5% 5%;
     color: #999;
 }
-.p-space{
+
+.p-space {
     text-indent: 25px;
 }

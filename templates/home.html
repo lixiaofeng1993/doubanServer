@@ -4,13 +4,13 @@
 {% block title %}長情.主页{% endblock title %}
 
 {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'home/home.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'home/home.css' %}"/>
 {% endblock linkscript %}
 
 {% block note %}
-{#    <span class="login look"><a href="/login/">{{ net_name | default:"游客" }} </a>你好!</span>#}
-{#    <span class="register look"><a href="/register/">注册</a></span>#}
-{#    <span class="quit look"><a href="/quit/">退出帐号</a></span>#}
+    {#    <span class="login look"><a href="/login/">{{ net_name | default:"游客" }} </a>你好!</span>#}
+    {#    <span class="register look"><a href="/register/">注册</a></span>#}
+    {#    <span class="quit look"><a href="/quit/">退出帐号</a></span>#}
 {% endblock note %}
 
 {% block main %}
@@ -18,7 +18,8 @@
         <div class="movie_now">
             <p class="now">高评分电影推荐</p>
             {% for foo in movie_name %}
-                <div class="box"><a href="{{ foo.info_website }}" ><img src="{{ foo.img }}"/><p id="movieName">{{ foo.movieName }}</p></a></div>
+                <div class="box"><a href="{{ foo.info_website }}"><img src="{{ foo.img }}"/>
+                    <p id="movieName">{{ foo.movieName }}</p></a></div>
             {% endfor %}
             <div class="clear"></div>
 
@@ -27,7 +28,8 @@
             <div class="img">
                 <p class="now">高评分书籍推荐</p>
                 {% for foo in book_name %}
-                <div class="box"><a href="{{ foo.book_info_website }}" ><img src="{{ foo.img }}"/><p id="movieName">{{ foo.book_name }}</p></a></div>
+                    <div class="box"><a href="{{ foo.book_info_website }}"><img src="{{ foo.img }}"/>
+                        <p id="movieName">{{ foo.book_name }}</p></a></div>
                 {% endfor %}
                 <div class="clear"></div>
 
@@ -37,7 +39,8 @@
             <div class="img">
                 <p class="now">高评分音乐推荐</p>
                 {% for foo in music_name %}
-                <div class="box"><a href="{{ foo.music_info_website }}" ><img src="{{ foo.img }}"/><p id="movieName">{{ foo.music_name }}</p></a></div>
+                    <div class="box"><a href="{{ foo.music_info_website }}"><img src="{{ foo.img }}"/>
+                        <p id="movieName">{{ foo.music_name }}</p></a></div>
                 {% endfor %}
                 <div class="clear"></div>
             </div>
